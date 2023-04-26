@@ -1,5 +1,9 @@
 function Meteo() {
-  return <p>voici notre component Météo</p>;
+  return (
+    <figure>
+      <img src="/soleil.jpg" alt="soleil" />
+      <p>voici notre component Météo</p>
+    </figure>
+  );
 }
-
 export default Meteo;
