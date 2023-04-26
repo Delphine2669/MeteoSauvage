@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import logo from "./assets/logo-projet-2.png";
 import Home from "./pages/Home";
 import "./App.css";
@@ -12,10 +12,7 @@ function App() {
       </header>
       <Navbar />
       <Routes>
-        <Route path="/" element={Home} />
-        <Home />
-        <p>coucou</p>
-        <Navbar />
+        <Route path="/" element={<Home />} />
       </Routes>
     </div>
   );
