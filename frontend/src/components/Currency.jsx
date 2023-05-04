@@ -32,13 +32,15 @@ function Currency() {
   }
 
   return (
-    <div>
+    <div className="positionDevise">
       {Object.entries(currencies).map(([key, value]) => {
         return (
-          <div key={key}>
-            {/* <p>{key}</p> */}
-            <p>{value.devise}</p>
-            <p>{value.rate}</p>
+          <div className="formDevise" key={key}>
+            <ul>
+              {/* <p>{key}</p> */}
+              <li>Devise : {value.devise}</li>
+              <li>Valeur : {value.rate}</li>
+            </ul>
           </div>
         );
       })}
