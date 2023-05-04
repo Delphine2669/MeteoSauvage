@@ -21,7 +21,6 @@ function Currency() {
       Object.entries(data).forEach(([k, v]) => {
         data[k] = { devise: v, rate: eurRates[k] };
       });
-      // console.log(data);
       setCurrencies(data);
     }
     fetchCurrencies();
@@ -37,7 +36,6 @@ function Currency() {
         return (
           <div className="formDevise" key={key}>
             <ul>
-              {/* <p>{key}</p> */}
               <li>Devise : {value.devise}</li>
               <li>Valeur : {value.rate}</li>
             </ul>
