@@ -10,7 +10,17 @@ function Search() {
       }`
     )
       .then((resp) => resp.json())
-      .then((data) => setResults(data))
+      .then((data) => {
+        const locationKey = data?.[0].Key; // Get the location key from the first result
+        fetch(
+          `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${
+            import.meta.env.VITE_WEATHER_API_KEY
+          }`
+        )
+          .then((resp) => resp.json())
+          .then((dataR) => setResults(dataR))
+          .catch((error) => console.error(error));
+      })
       .catch((error) => console.error(error));
   };
   return (
@@ -25,7 +35,11 @@ function Search() {
       </button>
       <ul>
         {results.map((result) => (
-          <li key={result.key}>{result.title}</li>
+          <li key={result.Date}>
+            {result.Date}:{result.Day.IconPhrase},
+            {result.Temperature.Maximum.Value}&deg;C/
+            {result.Temperature.Minimum.Value}&deg;C
+          </li>
         ))}
       </ul>
       <figure>

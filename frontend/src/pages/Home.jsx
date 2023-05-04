@@ -5,18 +5,16 @@ import Currency from "../components/Currency";
 
 function Home() {
   return (
-    <body>
-      <main>
-        <Routes>
-          <Route path="/meteo" element={<Meteo />} />
-          <Route path="/decalage-horaire" element={<Timezone />} />
-          <Route path="/devises" element={<Currency />} />
-        </Routes>
-        <Meteo />
-        <Timezone />
-        <Currency />
-      </main>
-    </body>
+    <main>
+      <Routes>
+        <Route path="/meteo" element={<Meteo />} />
+        <Route path="/decalage-horaire" element={<Timezone />} />
+        <Route path="/devises" element={<Currency />} />
+      </Routes>
+      <Meteo />
+      <Timezone />
+      <Currency />
+    </main>
   );
 }
 
