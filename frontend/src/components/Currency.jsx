@@ -1,9 +1,49 @@
+import React, { useState, useEffect } from "react";
+
 function Currency() {
+  const [currencies, setCurrencies] = useState(null);
+
+  useEffect(() => {
+    async function fetchCurrencies() {
+      const [dataResponse, eurResponse] = await Promise.all([
+        fetch(
+          "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies.json"
+        ),
+        fetch(
+          "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/eur.json"
+        ),
+      ]);
+      const [data, eurData] = await Promise.all([
+        dataResponse.json(),
+        eurResponse.json(),
+      ]);
+      const eurRates = eurData.eur;
+      Object.entries(data).forEach(([k, v]) => {
+        data[k] = { devise: v, rate: eurRates[k] };
+      });
+      setCurrencies(data);
+    }
+    fetchCurrencies();
+  }, []);
+
+  if (!currencies) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <figure>
-      <img src="/device.png" alt="device and change" />
-      <p>Le taux de change et la device</p>
-    </figure>
+    <div className="positionDevise">
+      {Object.entries(currencies).map(([key, value]) => {
+        return (
+          <div className="formDevise" key={key}>
+            <ul>
+              <li>Devise : {value.devise}</li>
+              <li>Valeur : {value.rate}</li>
+            </ul>
+          </div>
+        );
+      })}
+    </div>
   );
 }
+
 export default Currency;
