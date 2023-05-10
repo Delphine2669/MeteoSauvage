@@ -56,12 +56,6 @@ function WeatherDisplay() {
             alt={currentWeather.WeatherText}
           />
           <p>{`Temperature:${currentWeather.Temperature?.Metric?.Value}°C`}</p>
-          {/* <p>{`Feels like: ${
-            currentWeather.RealFeelTemperature?.Metric?.Value
-              ? celsius(currentWeather.RealFeelTemperature?.Metric?.Value) +
-                "°C"
-              : "N/A"
-          }`}</p> */}
         </div>
       )}
       {forecast && (
