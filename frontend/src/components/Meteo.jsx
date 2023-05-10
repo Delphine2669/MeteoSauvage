@@ -1,58 +1,96 @@
 import { useState } from "react";
+import axios from "axios";
 
-function Search() {
+function WeatherDisplay() {
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
-  const fetchResults = () => {
-    fetch(
-      `http://dataservice.accuweather.com/locations/v1/search?q=${query}&apikey=${
-        import.meta.env.VITE_WEATHER_API_KEY
-      }`
-    )
-      .then((resp) => resp.json())
-      .then((data) => {
-        const locationKey = data?.[0].Key; // Get the location key from the first result
-        fetch(
-          `http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${
-            import.meta.env.VITE_WEATHER_API_KEY
-          }`
-        )
-          .then((resp) => resp.json())
-          .then((dataR) => setResults(dataR))
-          .catch((error) => console.error(error));
-      })
-      .catch((error) => console.error(error));
+  const [currentWeather, setCurrentWeather] = useState(null);
+  const [forecast, setForecast] = useState(null);
+
+  async function HandleSearch(e) {
+    e.preventDefault();
+    try {
+      const response = await axios.get(
+        `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${
+          import.meta.env.VITE_WEATHER_API_KEY
+        }&q=${query}&language=fr-fr`
+      );
+      const locationKey = response.data[0].Key;
+      const currentConditionsResponse = await axios.get(
+        `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${
+          import.meta.env.VITE_WEATHER_API_KEY
+        }&language=fr-fr`
+      );
+      const fiveDayForecastResponse = await axios.get(
+        `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${
+          import.meta.env.VITE_WEATHER_API_KEY
+        }&language=fr-fr`
+      );
+      setCurrentWeather(currentConditionsResponse.data[0]);
+      setForecast(fiveDayForecastResponse.data.DailyForecasts);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  const celsius = (fahrenheit) => Math.ceil(((fahrenheit - 32) * 5) / 9);
+  const iconUrl = (iconNumber) => {
+    return `https://developer.accuweather.com/sites/default/files/${
+      iconNumber < 10 ? "0" : ""
+    }${iconNumber}-s.png`;
   };
   return (
     <div>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button type="submit" onClick={fetchResults}>
-        Search
-      </button>
-      <ul>
-        {results.map((result) => (
-          <li key={result.Date}>
-            {result.Date}:{result.Day.IconPhrase},
-            {result.Temperature.Maximum.Value}&deg;C/
-            {result.Temperature.Minimum.Value}&deg;C
-          </li>
-        ))}
-      </ul>
-      <figure>
-        <img src="/soleil.jpg" alt="soleil" />
-        <figcaption>voici notre component Météo</figcaption>
-      </figure>
+      <form onSubmit={HandleSearch}>
+        <input
+          type="text"
+          placeholder="Enter city name"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button type="submit">Search</button>
+      </form>
+      {currentWeather && (
+        <div>
+          <h2>{currentWeather.WeatherText}</h2>
+          <img
+            src={iconUrl(currentWeather.WeatherIcon)}
+            alt={currentWeather.WeatherText}
+          />
+          <p>{`Temperature:${currentWeather.Temperature?.Metric?.Value}°C`}</p>
+          {/* <p>{`Feels like: ${
+            currentWeather.RealFeelTemperature?.Metric?.Value
+              ? celsius(currentWeather.RealFeelTemperature?.Metric?.Value) +
+                "°C"
+              : "N/A"
+          }`}</p> */}
+        </div>
+      )}
+      {forecast && (
+        <div>
+          <h2>Prévisions sur 5 jours</h2>
+          <ul>
+            {forecast.map((day) => {
+              const date = new Date(day.Date);
+              const dayOfMonth = date.getDate();
+              const month = date.getMonth() + 1;
+              const formattedDate = `${
+                dayOfMonth < 10 ? "0" : ""
+              }${dayOfMonth} / ${month < 10 ? "0" : ""}${month};`;
+              return (
+                <li key={day.Date}>
+                  <p>{formattedDate}</p>
+                  <p>{day.Day.IconPhrase}</p>
+                  <img src={iconUrl(day.Day.Icon)} alt={day.Day.IconPhrase} />
+                  <p>{`Temperature range: ${celsius(
+                    day.Temperature.Minimum.Value
+                  )}°C - ${celsius(day.Temperature.Maximum.Value)}°C`}</p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
 
-function Meteo() {
-  console.info('"cle-api"', import.meta.env.VITE_WEATHER_API_KEY);
-  return <Search />;
-}
-
-export default Meteo;
+export default WeatherDisplay;
