@@ -3,6 +3,7 @@ import logo from "./assets/logo-projet-2.png";
 import Home from "./pages/Home";
 import "./App.css";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Meteo from "./components/Meteo";
 import Timezone from "./components/Timezone";
 import Currency from "./components/Currency";
@@ -20,6 +21,7 @@ function App() {
         <Route path="/decalage-horaire" element={<Timezone />} />
         <Route path="/devises" element={<Currency />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
