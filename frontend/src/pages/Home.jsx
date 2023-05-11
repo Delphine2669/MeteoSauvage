@@ -2,7 +2,7 @@ import Meteo from "../components/Meteo";
 import Timezone from "../components/Timezone";
 import Currency from "../components/Currency";
 
-export default function Home() {
+function Home() {
   return (
     <main>
       <Meteo />
@@ -11,3 +11,5 @@ export default function Home() {
     </main>
   );
 }
+
+export default Home;

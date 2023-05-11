@@ -3,6 +3,10 @@
     "browser": true,
     "es2021": true
   },
+  "globals":{
+    "fetch":false,
+    "AccuWeather":false
+  },
   "extends": [
     "plugin:react/recommended",
     "airbnb",
