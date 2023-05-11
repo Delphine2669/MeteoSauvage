@@ -6,7 +6,7 @@ import Currency from "../components/Currency";
 export default function Home() {
   return (
     <main>
-      <Routes className="designHome">
+      <Routes>
         <Route path="/meteo" element={<Meteo />} />
         <Route path="/decalage-horaire" element={<Timezone />} />
         <Route path="/devises" element={<Currency />} />

@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <div>
-      <nav className="designNavBlock">
-        <Link to="/" className="designNav">
+      <nav className="design-nav-block">
+        <Link to="/" className="design-nav">
           Home
         </Link>
-        <Link to="/meteo" className="designNav">
+        <Link to="/meteo" className="design-nav">
           Météo
         </Link>
-        <Link to="/decalage-horaire" className="designNav">
+        <Link to="/decalage-horaire" className="design-nav">
           Décalage Horaire
         </Link>
-        <Link to="/devises" className="designNav">
+        <Link to="/devises" className="design-nav">
           Devises
         </Link>
       </nav>

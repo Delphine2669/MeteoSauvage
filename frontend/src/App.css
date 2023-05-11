@@ -19,12 +19,12 @@ h2{
   padding: 0 5%;
 }
 /*NavBar*/
-.designNavBlock{
+.design-nav-block{
   margin: 3% 0;
   display: flex;
   justify-content: space-around;
 }
-.designNav{
+.design-nav{
   text-decoration: none;
   color: black;
   background-color:rgb(217, 217, 217, 50%);
@@ -53,8 +53,8 @@ main{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 30%;
-  margin: auto;
+  width: 40%;
+  margin: 4% auto;
 }
 .meteo img{
   width: 12em;
@@ -62,7 +62,6 @@ main{
 .meteo p{
   text-align: justify;
   font-size: 1em;
-  min-width: 30%;
 }
 /* composant décalage horaire/timezone */
 .timezone{
@@ -70,18 +69,18 @@ main{
   padding: 2%;
   border-radius: 10px;
   margin: 3% 5%;
-  width: 25%;
+  width: 40%;
   min-height: 20em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: auto;
+  margin: 4% auto;
 }
 .timezone p{
   text-align: justify;
 }
 .timezone img{
-  width: 12em;
+  width: 16em;
 }
 /*composant devise/currency*/
 .currency{
@@ -91,17 +90,16 @@ main{
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  margin: 3% auto;
 }
-.currencyForm{
+.currency-form{
   display: flex;
   flex-wrap: wrap;
   flex-direction:row;
   justify-content: center;
   
 }
-.formCurrency{
-  background-color: rgba(14,182,81,50%);
+.form-currency{
+  background-color: rgb(103, 222, 103);
   border-radius: 10px;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.456);
   max-width: 50vh;
@@ -141,10 +139,28 @@ li{
 
 @media screen and (max-width: 414px) {
   /*navBar*/
-  .designNav{
+  .design-nav{
     padding: 1% 2%;
   }
   .logo-site{
     width: 22vw;
+  }
+  .meteo{
+  width: 40%;
+  }
+  .meteo img{
+    width: 7em;
+  }
+  .meteo p{
+    font-size: 0.7em;
+  }
+  .timezone{
+    width: 40%;
+    }
+  .timezone p{
+    font-size: 0.7em;
+  }
+  .timezone img{
+    width: 6em;
   }
 }

@@ -33,10 +33,10 @@ function Currency() {
   return (
     <figure className="currency">
       <h2>Taux de change</h2>
-      <div className="currencyForm">
+      <div className="currency-form">
         {Object.entries(currencies).map(([key, value]) => {
           return (
-            <div className="formCurrency" key={key}>
+            <div className="form-currency" key={key}>
               <ul>
                 <li>Devise : {value.devise}</li>
                 <li>Valeur : {value.rate}</li>
