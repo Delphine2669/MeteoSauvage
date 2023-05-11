@@ -15,7 +15,7 @@ function App() {
       </header>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="*" element={<Home />} />
         <Route path="/Meteo" element={<Meteo />} />
         <Route path="/decalage-horaire" element={<Timezone />} />
         <Route path="/devises" element={<Currency />} />
