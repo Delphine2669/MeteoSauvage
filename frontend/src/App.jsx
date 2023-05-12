@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Home from "./pages/Home";
 import "./App.css";
-import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Meteo from "./components/Meteo";
 import Timezone from "./components/Timezone";
