@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Home from "./pages/Home";
 import "./App.css";
+import Footer from "./components/Footer";
 import Meteo from "./components/Meteo";
 import Timezone from "./components/Timezone";
 import Currency from "./components/Currency";
@@ -18,6 +19,7 @@ function App() {
         <Route path="/decalage-horaire" element={<Timezone />} />
         <Route path="/devises" element={<Currency />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

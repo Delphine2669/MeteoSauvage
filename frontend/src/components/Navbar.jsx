@@ -3,14 +3,19 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <div>
-      <nav>
-        <Link to="/">Home</Link>
-        <br />
-        <Link to="/meteo">Meteo</Link>
-        <br />
-        <Link to="/decalage-horaire">Decalage Horaire</Link>
-        <br />
-        <Link to="/devises">Devises</Link>
+      <nav className="design-nav-block">
+        <Link to="/" className="design-nav">
+          Home
+        </Link>
+        <Link to="/meteo" className="design-nav">
+          Météo
+        </Link>
+        <Link to="/decalage-horaire" className="design-nav">
+          Décalage Horaire
+        </Link>
+        <Link to="/devises" className="design-nav">
+          Devises
+        </Link>
       </nav>
     </div>
   );

@@ -31,18 +31,21 @@ function Currency() {
   }
 
   return (
-    <div className="positionDevise">
-      {Object.entries(currencies).map(([key, value]) => {
-        return (
-          <div className="formDevise" key={key}>
-            <ul>
-              <li>Devise : {value.devise}</li>
-              <li>Valeur : {value.rate}</li>
-            </ul>
-          </div>
-        );
-      })}
-    </div>
+    <figure className="currency">
+      <h2>Taux de change</h2>
+      <div className="currency-form">
+        {Object.entries(currencies).map(([key, value]) => {
+          return (
+            <div className="form-currency" key={key}>
+              <ul>
+                <li>Devise : {value.devise}</li>
+                <li>Valeur : {value.rate}</li>
+              </ul>
+            </div>
+          );
+        })}
+      </div>
+    </figure>
   );
 }
 

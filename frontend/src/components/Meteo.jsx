@@ -38,52 +38,54 @@ function WeatherDisplay() {
     }${iconNumber}-s.png`;
   };
   return (
-    <div>
-      <form onSubmit={HandleSearch}>
-        <input
-          type="text"
-          placeholder="Enter city name"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <button type="submit">Search</button>
-      </form>
-      {currentWeather && (
-        <div>
-          <h2>{currentWeather.WeatherText}</h2>
-          <img
-            src={iconUrl(currentWeather.WeatherIcon)}
-            alt={currentWeather.WeatherText}
+    <figure className="meteo">
+      <div>
+        <form onSubmit={HandleSearch}>
+          <input
+            type="text"
+            placeholder="Enter city name"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
           />
-          <p>{`Temperature:${currentWeather.Temperature?.Metric?.Value}°C`}</p>
-        </div>
-      )}
-      {forecast && (
-        <div>
-          <h2>Prévisions sur 5 jours</h2>
-          <ul>
-            {forecast.map((day) => {
-              const date = new Date(day.Date);
-              const dayOfMonth = date.getDate();
-              const month = date.getMonth() + 1;
-              const formattedDate = `${
-                dayOfMonth < 10 ? "0" : ""
-              }${dayOfMonth} / ${month < 10 ? "0" : ""}${month};`;
-              return (
-                <li key={day.Date}>
-                  <p>{formattedDate}</p>
-                  <p>{day.Day.IconPhrase}</p>
-                  <img src={iconUrl(day.Day.Icon)} alt={day.Day.IconPhrase} />
-                  <p>{`Temperature range: ${celsius(
-                    day.Temperature.Minimum.Value
-                  )}°C - ${celsius(day.Temperature.Maximum.Value)}°C`}</p>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )}
-    </div>
+          <button type="submit">Search</button>
+        </form>
+        {currentWeather && (
+          <div>
+            <h2>{currentWeather.WeatherText}</h2>
+            <img
+              src={iconUrl(currentWeather.WeatherIcon)}
+              alt={currentWeather.WeatherText}
+            />
+            <p>{`Temperature:${currentWeather.Temperature?.Metric?.Value}°C`}</p>
+          </div>
+        )}
+        {forecast && (
+          <div>
+            <h2>Prévisions sur 5 jours</h2>
+            <ul>
+              {forecast.map((day) => {
+                const date = new Date(day.Date);
+                const dayOfMonth = date.getDate();
+                const month = date.getMonth() + 1;
+                const formattedDate = `${
+                  dayOfMonth < 10 ? "0" : ""
+                }${dayOfMonth} / ${month < 10 ? "0" : ""}${month};`;
+                return (
+                  <li key={day.Date}>
+                    <p>{formattedDate}</p>
+                    <p>{day.Day.IconPhrase}</p>
+                    <img src={iconUrl(day.Day.Icon)} alt={day.Day.IconPhrase} />
+                    <p>{`Temperature range: ${celsius(
+                      day.Temperature.Minimum.Value
+                    )}°C - ${celsius(day.Temperature.Maximum.Value)}°C`}</p>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+      </div>
+    </figure>
   );
 }
 
