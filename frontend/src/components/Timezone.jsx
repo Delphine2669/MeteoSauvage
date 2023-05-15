@@ -32,6 +32,8 @@ function Timezone() {
     e.preventDefault();
   }
   return (
+
+<figure className="timezone">
     <div>
       <form onSubmit={HandleSearch}>
         <input
@@ -50,6 +52,8 @@ function Timezone() {
         <p>{timezone}</p>
       </figure>
     </div>
+        </figure>
+
   );
 }
 export default Timezone;
