@@ -18,7 +18,7 @@ function Timezone() {
         setTimezoneName(timezoneNameResponse);
         const timezoneOffset =
           response.data.results[0].annotations.timezone.offset_string
-          // the timezone api isn't based on Paris time so had to add a -2 
+          // this API time isnt based on Paris time, so that we had to add the -2 for the next variable
         const hours = timezoneOffset.slice(0, -2) - 2;
         const minutes = timezoneOffset.slice(-2);
         const formattedOffset = `${hours}H${minutes}`;
@@ -33,7 +33,7 @@ function Timezone() {
     e.preventDefault();
   }
   return (
-<figure className="timezone">
+ <figure className="timezone">
     <div>
       <form onSubmit={handleSearch}>
         <input
