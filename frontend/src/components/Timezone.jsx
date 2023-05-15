@@ -17,7 +17,8 @@ function Timezone() {
           response.data.results[0].annotations.timezone.name;
         setTimezoneName(timezoneNameResponse);
         const timezoneOffset =
-          response.data.results[0].annotations.timezone.offset_string;
+          response.data.results[0].annotations.timezone.offset_string
+          // the timezone api isn't based on Paris time so had to add a -2 
         const hours = timezoneOffset.slice(0, -2) - 2;
         const minutes = timezoneOffset.slice(-2);
         const formattedOffset = `${hours}H${minutes}`;
@@ -28,14 +29,13 @@ function Timezone() {
     }
     fetchTimezone();
   }, [query]);
-  function HandleSearch(e) {
+  function handleSearch(e) {
     e.preventDefault();
   }
   return (
-
 <figure className="timezone">
     <div>
-      <form onSubmit={HandleSearch}>
+      <form onSubmit={handleSearch}>
         <input
           type="text"
           placeholder="Enter city name"
