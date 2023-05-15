@@ -53,7 +53,6 @@ function Timezone() {
         </figure>
       </div>
     </figure>
-
   );
 }
 export default Timezone;
