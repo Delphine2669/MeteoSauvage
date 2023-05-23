@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import logo from "./assets/logo-projet-2.png";
 import Home from "./pages/Home";
 import "./App.css";
 import Footer from "./components/Footer";
@@ -12,6 +13,9 @@ function App() {
   const [citySearch, setCitySearch] = useState("");
   return (
     <div>
+      <header>
+        <img src={logo} className="logo-site" alt="logo site" />
+      </header>
       <Header setCitySearch={setCitySearch} />
       <Routes>
         <Route path="*" element={<Home />} />
