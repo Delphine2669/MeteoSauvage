@@ -10,6 +10,9 @@ dependencies:
   axios:
     specifier: ^1.4.0
     version: 1.4.0
+  prop-type:
+    specifier: ^0.0.1
+    version: 0.0.1
   prop-types:
     specifier: ^15.8.1
     version: 15.8.1
@@ -1498,7 +1501,7 @@ packages:
       combined-stream: 1.0.8
       mime-types: 2.1.35
     dev: false
-    
+
   /form-data@4.0.0:
     resolution: {integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==}
     engines: {node: '>= 6'}
@@ -2202,6 +2205,11 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
+
+  /prop-type@0.0.1:
+    resolution: {integrity: sha512-6+7BTexA1dif2J3zyeVZB5sn3KVb/7iRJKruWTHpeHD99rUmWTHp7Vp51rPGPIa9av4HX1g+2D2gdIAWOhI7gw==}
+    deprecated: this package is no longer maintained and propably broken
+    dev: false
 
   /prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
