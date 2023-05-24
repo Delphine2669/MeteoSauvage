@@ -18,7 +18,7 @@ function App() {
       </header>
       <Header setCitySearch={setCitySearch} />
       <Routes>
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<Home citySearch={citySearch} />} />
         <Route path="/Meteo" element={<Meteo citySearch={citySearch} />} />
         <Route path="/decalage-horaire" element={<Timezone />} />
         <Route path="/devises" element={<Currency />} />
