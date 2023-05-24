@@ -15,7 +15,7 @@ body {
   --fontcolor: rgb(2, 2, 47);
   --weathercomponentcolor:linear-gradient(131deg, rgba(173,134,232,0.8295693277310925) 0%, rgba(72,198,244,1) 49%, rgba(228,175,35,1) 100%);
   --timezonecomponentcolor:linear-gradient(131deg, rgba(227,165,213,1) 4%, rgba(230,183,113,1) 79%, rgba(255,173,39,1) 99%);
-  --currencycomponentcolor:linear-gradient(131deg, rgba(44,68,78,1) 0%, rgba(70,106,108,1) 47%, rgba(132,191,179,1) 100%);
+  --currencycomponentcolor:linear-gradient(131deg, rgba(132,191,179,1) 0%, rgba(70,106,108,1) 47%, rgba(44,68,78,1) 100%);
 }
 *{
   color:var(--fontcolor)
@@ -48,16 +48,16 @@ body {
   text-align: center;
 }
 .searchbar-input{
-  width: 20vw;
-  height: 8vh;
+  width: 220px;
+  height: 35px;
   border-radius: 12px;
   text-align: center;
   font-size: large;
 
 }
 .submit-button{
-  width: 12vw;
-  height: 9.3vh;
+  width: 120px;
+  height: 40px;
   border-radius: 12px;
   font-size: large;
   margin-left: 15px;
@@ -76,7 +76,7 @@ body {
   position: absolute;
   font-family: Georgia;
   margin: 0;
-  top: 30%;
+  top: 19%;
   left: 18%;
   transform: translate(-50%, -50%);
   color: var(--eggshellcolor);
