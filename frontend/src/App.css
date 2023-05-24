@@ -229,12 +229,13 @@ li{
     width: 6em;
   }
 .searchbar-input{
-  width:40vw;
+  height: 80%;
+  width: 50%;
 font-size:x-small;
 }
 .submit-button{
-  width: 20vw;
-  height: 6vh;
+  width: 28%;
+  height: 80%;
   font-size: x-small;
 }
 .header-title{
