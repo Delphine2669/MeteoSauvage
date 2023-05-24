@@ -31,7 +31,7 @@ h2{
 }
 /*NavBar*/
 .design-nav-block{
-  margin: 3% 0;
+  margin: 5% 0;
   display: flex;
   justify-content: space-around;
 }
@@ -46,7 +46,16 @@ h2{
 }
 .searchbar{
   text-align: center;
+}
+.searchbar-input{
+  width: 192px;
+  height: 40px;
   border-radius: 15px;
+}
+.submit-button{
+  width: 120px;
+  height:40px;
+  border-radius: 12px;
 }
 .searchbar-input,.submit-button,.home-button{
   background-color: #ffffeb;
