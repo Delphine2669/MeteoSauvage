@@ -27,7 +27,7 @@ function Meteo({ citySearch }) {
         );
         const fiveDayForecastResponse = await axios.get(
           `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${
-            import.meta.env.VITE_WEATHER_API_KEY
+            import.meta.env.VITE_WEATHER_API_KEY2
           }&language=fr-fr`
         );
         setCurrentWeather(currentConditionsResponse.data[0]);
