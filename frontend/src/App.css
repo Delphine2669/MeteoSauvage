@@ -6,8 +6,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
+  background-color: var(--mainbackgroundcolor);
 }
 /* Design en commun */
+:root{
+  --mainbackgroundcolor:#242424;
+  --fontcolor: rgb(2, 2, 47);
+  --weathercomponentcolor:linear-gradient(131deg, rgba(173,134,232,0.8295693277310925) 0%, rgba(72,198,244,1) 49%, rgba(228,175,35,1) 74%);
+  --timezonecomponentcolor:linear-gradient(131deg, rgba(227,165,213,1) 4%, rgba(230,183,113,1) 79%, rgba(255,173,39,1) 99%);
+  --currencycomponentcolor:linear-gradient(131deg, rgba(44,68,78,1) 0%, rgba(70,106,108,1) 47%, rgba(132,191,179,1) 100%);
+}
+*{
+  color:var(--fontcolor)
+}
 h2{
   font-weight: 300;
   display: inline;
@@ -33,6 +44,13 @@ h2{
   min-width: 10vw;
   text-align: center;
 }
+.searchbar{
+  text-align: center;
+  border-radius: 15px;
+}
+.searchbar-input,.submit-button,.home-button{
+  background-color: #ffffeb;
+}
 /*design home */
 main{
   margin-bottom: 0;
@@ -42,9 +60,10 @@ main{
   justify-content: center;
   flex-wrap: wrap;
 }
+
 /* composant Météo */
 .meteo{
-  background-color: rgba(140,221,192,50%);
+  background: var(--weathercomponentcolor);
   padding: 2%;
   border-radius: 10px;
   min-height: 20em;
@@ -63,9 +82,12 @@ main{
   text-align: justify;
   font-size: 1em;
 }
+.weather-button{
+  background:var(--weathercomponentcolor);
+}
 /* composant décalage horaire/timezone */
 .timezone{
-  background-color: rgba(221,203,140,50%);
+  background:var(--timezonecomponentcolor);
   padding: 2%;
   border-radius: 10px;
   margin: 3% 5%;
@@ -82,10 +104,13 @@ main{
 .timezone img{
   width: 16em;
 }
+.timezone-button{
+  background: var(--timezonecomponentcolor);
+}
 /*composant devise/currency*/
 .currency{
   margin: 3% 2%;
-  background-color: rgba(14,182,81,50%);
+  background:var(--currencycomponentcolor);
   padding: 2%;
   border-radius: 10px;
   display: flex;
@@ -120,6 +145,11 @@ li{
  list-style-type: none;
  width: auto;
 }
+.currency-button{
+  background:var(--currencycomponentcolor)
+}
+
+/*Footer */
 .footer{
   margin-top: 3%;
   bottom: 0;
