@@ -10,16 +10,17 @@ body {
 }
 /* Design en commun */
 :root{
+  --eggshellcolor:#ffffeb;
   --mainbackgroundcolor:#242424;
   --fontcolor: rgb(2, 2, 47);
-  --weathercomponentcolor:linear-gradient(131deg, rgba(173,134,232,0.8295693277310925) 0%, rgba(72,198,244,1) 49%, rgba(228,175,35,1) 74%);
+  --weathercomponentcolor:linear-gradient(131deg, rgba(173,134,232,0.8295693277310925) 0%, rgba(72,198,244,1) 49%, rgba(228,175,35,1) 100%);
   --timezonecomponentcolor:linear-gradient(131deg, rgba(227,165,213,1) 4%, rgba(230,183,113,1) 79%, rgba(255,173,39,1) 99%);
   --currencycomponentcolor:linear-gradient(131deg, rgba(44,68,78,1) 0%, rgba(70,106,108,1) 47%, rgba(132,191,179,1) 100%);
 }
 *{
   color:var(--fontcolor)
 }
-h2{
+.component-title{
   font-weight: 300;
   display: inline;
   text-align: center;
@@ -28,6 +29,7 @@ h2{
 .logo-site{
   width: 13vw;
   padding: 0 5%;
+  margin-right: 10px;
 }
 /*NavBar*/
 .design-nav-block{
@@ -37,8 +39,6 @@ h2{
 }
 .design-nav{
   text-decoration: none;
-  color: black;
-  background-color:rgb(217, 217, 217, 50%);
   border-radius: 10px;
   padding: 1% 3%;
   min-width: 10vw;
@@ -48,18 +48,43 @@ h2{
   text-align: center;
 }
 .searchbar-input{
-  width: 192px;
-  height: 40px;
-  border-radius: 15px;
+  width: 20vw;
+  height: 8vh;
+  border-radius: 12px;
+  text-align: center;
+  font-size: large;
+
 }
 .submit-button{
-  width: 120px;
-  height:40px;
+  width: 12vw;
+  height: 9.3vh;
   border-radius: 12px;
+  font-size: large;
+  margin-left: 15px;
 }
+.searchbar
 .searchbar-input,.submit-button,.home-button{
-  background-color: #ffffeb;
+  background-color: var(--eggshellcolor);
 }
+.header-div{
+  display: inline;
+  position:static;
+}
+
+.header-title {
+  z-index: 1;
+  position: absolute;
+  font-family: Georgia;
+  margin: 0;
+  top: 30%;
+  left: 18%;
+  transform: translate(-50%, -50%);
+  color: var(--eggshellcolor);
+  background-color: #242424;
+  font-size: 2vw;
+}
+
+
 /*design home */
 main{
   margin-bottom: 0;
@@ -83,6 +108,7 @@ main{
   justify-content: center;
   width: 40%;
   margin: 4% auto;
+  text-decoration: none;
 }
 .meteo img{
   width: 12em;
@@ -136,7 +162,7 @@ main{
   background-color: rgb(103, 222, 103);
   border-radius: 10px;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.456);
-  max-width: 50vh;
+  max-width: 50vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -202,4 +228,47 @@ li{
   .timezone img{
     width: 6em;
   }
+.searchbar-input{
+  width:40vw;
+font-size:x-small;
+}
+.submit-button{
+  width: 20vw;
+  height: 6vh;
+  font-size: x-small;
+}
+.header-title{
+  top: 20%;
+  left: 23%;
+}
+.design-nav-block{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr;
+  gap: 22% 2%; 
+  grid-template-areas: "home home home"
+  "weather timezone currency"
+  ;
+}
+.home-button { grid-area: home; 
+  
+}
+.weather-button { grid-area: weather; }
+.timezone-button { grid-area: timezone; }
+.currency-button { grid-area: currency; }
+
+.design-nav{
+  height:14vh;
+  text-align: center;
+}
+.component-title{
+  font-size: 50%;
+  font-weight: 900;
+}
+.tz-h4{
+  font-size: x-small;
+}
+.searchbar{
+  margin-top: 10%;
+}
 }
