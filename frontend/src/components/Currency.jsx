@@ -32,7 +32,7 @@ function Currency() {
 
   return (
     <figure className="currency">
-      <h2>Taux de change</h2>
+      <h2 className="component-title">Taux de change</h2>
       <div className="currency-form">
         {Object.entries(currencies).map(([key, value]) => {
           return (

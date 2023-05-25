@@ -33,11 +33,12 @@ function Timezone({ citySearch }) {
   }, [citySearch]);
 
   return (
-    <div className="timezone">
-      <p>Region:</p>
-      <p>{timezoneName}</p>
+    <div className="timezone ">
+      <h2 className="component-title">Décalage horaire</h2>
+      <h4 className="tz-h4">Région:</h4>
+      <h4 className="tz-h4">{timezoneName}</h4>
       <p>décalage horaire de:</p>
-      <p>{timezone}</p>
+      <h4 className="tz-h4">{timezone} par rapport à Paris</h4>
     </div>
   );
 }
