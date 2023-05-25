@@ -47,7 +47,8 @@ function Meteo({ citySearch }) {
       {currentWeather && (
         <div className="currentweather">
           <h2>{currentWeather.WeatherText}</h2>
-          <img className="currentweather-icon"
+          <img
+            className="currentweather-icon"
             src={iconUrl(currentWeather.WeatherIcon)}
             alt={currentWeather.WeatherText}
           />
