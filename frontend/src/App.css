@@ -75,24 +75,6 @@ width: auto;
 max-width: 150%;
 }
 
-/*
-.header-title {
-  z-index: 1;
-  position: absolute;
-  font-family: Georgia;
-  margin: 0;
-  top: 19%;
-  left: 18%;
-  transform: translate(-50%, -50%);
-  color: var(--eggshellcolor);
-  background-color: #242424;
-  font-size: 2vw;
-  border-radius: 10px;
-  border-color: blanchedalmond 4px;
-  padding-left:4px;
-} */
-
-
 /*design home */
 main{
   margin-bottom: 0;
