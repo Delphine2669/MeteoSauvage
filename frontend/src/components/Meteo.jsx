@@ -16,18 +16,18 @@ function Meteo({ citySearch }) {
       try {
         const response = await axios.get(
           `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${
-            import.meta.env.VITE_WEATHER_API_KEY2
+            import.meta.env.VITE_WEATHER_API_KEY3
           }&q=${citySearch}&language=fr-fr`
         );
         const locationKey = response.data[0].Key;
         const currentConditionsResponse = await axios.get(
           `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${
-            import.meta.env.VITE_WEATHER_API_KEY2
+            import.meta.env.VITE_WEATHER_API_KEY3
           }&language=fr-fr`
         );
         const fiveDayForecastResponse = await axios.get(
           `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${
-            import.meta.env.VITE_WEATHER_API_KEY2
+            import.meta.env.VITE_WEATHER_API_KEY3
           }&language=fr-fr`
         );
         setCurrentWeather(currentConditionsResponse.data[0]);

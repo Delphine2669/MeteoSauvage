@@ -20,7 +20,7 @@ function SearchBar({ setCitySearch }) {
         type="text"
         value={searchTerm}
         onChange={handleChange}
-        placeholder="Entrez une ville ou une monnaie"
+        placeholder="Entrez une ville"
         className="searchbar-input"
       />
       <button type="submit" className="submit-button">
