@@ -8,7 +8,7 @@ function Home({ citySearch }) {
     <main>
       <Meteo citySearch={citySearch} />
       <Timezone citySearch={citySearch} />
-      <Currency />
+      <Currency citySearch={citySearch} />
     </main>
   );
 }
