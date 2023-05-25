@@ -13,6 +13,8 @@ body {
   --eggshellcolor:#ffffeb;
   --mainbackgroundcolor:#242424;
   --fontcolor: rgb(2, 2, 47);
+  --curencybuttoncolor:linear-gradient(131deg, rgba(132,191,179,1) 0%, rgb(84, 128, 131) 47%, rgb(81, 130, 150) 100%);
+;
   --weathercomponentcolor:linear-gradient(131deg, rgba(173,134,232,0.8295693277310925) 0%, rgba(72,198,244,1) 49%, rgba(228,175,35,1) 100%);
   --timezonecomponentcolor:linear-gradient(131deg, rgba(227,165,213,1) 4%, rgba(230,183,113,1) 79%, rgba(255,173,39,1) 99%);
   --currencycomponentcolor:linear-gradient(131deg, rgba(132,191,179,1) 0%, rgba(70,106,108,1) 47%, rgba(44,68,78,1) 100%);
@@ -27,7 +29,7 @@ body {
 }
 
 .logo-site{
-  width: 13vw;
+  width: 25vw;
   padding: 0 5%;
   margin-right: 10px;
 }
@@ -67,10 +69,13 @@ body {
   background-color: var(--eggshellcolor);
 }
 .header-div{
-  display: inline;
-  position:static;
+margin-top: 2%;
+margin-bottom: -2%;
+width: auto;
+max-width: 150%;
 }
 
+/*
 .header-title {
   z-index: 1;
   position: absolute;
@@ -82,7 +87,10 @@ body {
   color: var(--eggshellcolor);
   background-color: #242424;
   font-size: 2vw;
-}
+  border-radius: 10px;
+  border-color: blanchedalmond 4px;
+  padding-left:4px;
+} */
 
 
 /*design home */
@@ -181,7 +189,7 @@ li{
  width: auto;
 }
 .currency-button{
-  background:var(--currencycomponentcolor)
+  background:var(--curencybuttoncolor);
 }
 
 /*Footer */
@@ -208,7 +216,7 @@ li{
     padding: 1% 2%;
   }
   .logo-site{
-    width: 22vw;
+    width: 38vw;
   }
   .meteo{
   width: 40%;
@@ -230,7 +238,7 @@ li{
   }
 .searchbar-input{
   height: 80%;
-  width: 36%;
+  width: 47%;
 font-size:x-small;
 
 }
@@ -246,7 +254,7 @@ font-size:x-small;
 .design-nav-block{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; 
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 0.2fr 0.2fr;
   gap: 22% 2%; 
   grid-template-areas: "home home home"
   "weather timezone currency"
@@ -260,9 +268,9 @@ font-size:x-small;
 .currency-button { grid-area: currency; }
 
 .design-nav{
-  height:14vh;
+  height:10vh;
 align-items: center;
-line-height: 3;
+line-height: 2.5;
 }
 .component-title{
   font-size: 50%;

@@ -6,7 +6,6 @@ function Header({ setCitySearch }) {
   return (
     <header>
       <div className="header-div">
-        <h3 className="header-title">Météo Sauvage</h3>
         <img src="/logo-projet-2.png" className="logo-site" alt="logo site" />
       </div>
       <Navbar />
