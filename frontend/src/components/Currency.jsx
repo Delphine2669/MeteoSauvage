@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
-function Currency() {
+function Currency({ citySearch }) {
   const [currencies, setCurrencies] = useState(null);
+  const [filteredCurrencies, setFilteredCurrencies] = useState(null);
 
   useEffect(() => {
     async function fetchCurrencies() {
@@ -22,24 +24,35 @@ function Currency() {
         data[k] = { devise: v, rate: eurRates[k] };
       });
       setCurrencies(data);
+      setFilteredCurrencies(data);
     }
     fetchCurrencies();
-  }, []);
+  }, [citySearch]);
 
   if (!currencies) {
     return <div>Loading...</div>;
   }
 
+  if (Object.keys(filteredCurrencies).length === 0) {
+    return <div>Pas de devises correspondante.</div>;
+  }
+
   return (
     <figure className="currency">
-      <h2 className="component-title">Taux de change</h2>
+      <h2 className="component-title currency-title">Taux de change</h2>
       <div className="currency-form">
-        {Object.entries(currencies).map(([key, value]) => {
+        {Object.entries(filteredCurrencies).map(([key, value]) => {
+          if (
+            citySearch &&
+            value.devise.toLowerCase().indexOf(citySearch.toLowerCase()) === -1
+          ) {
+            return null; // Skip rendering the currency
+          }
           return (
             <div className="form-currency" key={key}>
-              <ul>
-                <li>Devise : {value.devise}</li>
-                <li>Valeur : {value.rate}</li>
+              <ul className="form-ul">
+                <li className="form-li">Devise: {value.devise}</li>
+                <li className="form-li">Valeur: {value.rate}</li>
               </ul>
             </div>
           );
@@ -48,5 +61,9 @@ function Currency() {
     </figure>
   );
 }
+
+Currency.propTypes = {
+  citySearch: PropTypes.string.isRequired,
+};
 
 export default Currency;

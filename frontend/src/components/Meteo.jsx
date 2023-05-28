@@ -85,7 +85,7 @@ function Meteo({ citySearch }) {
   );
 }
 Meteo.propTypes = {
-  citySearch: PropTypes.func.isRequired,
+  citySearch: PropTypes.string.isRequired,
 };
 
 export default Meteo;

@@ -13,11 +13,10 @@ body {
   --eggshellcolor:#ffffeb;
   --mainbackgroundcolor:#242424;
   --fontcolor: rgb(2, 2, 47);
-  --curencybuttoncolor:linear-gradient(131deg, rgba(132,191,179,1) 0%, rgb(84, 128, 131) 47%, rgb(81, 130, 150) 100%);
-;
+  --curencybuttoncolor:linear-gradient(131deg,rgba(132,191,179,1) 0%, rgb(84, 128, 131) 47%,  rgb(81, 130, 150) 100%);
   --weathercomponentcolor:linear-gradient(131deg, rgba(173,134,232,0.8295693277310925) 0%, rgba(72,198,244,1) 49%, rgba(228,175,35,1) 100%);
   --timezonecomponentcolor:linear-gradient(131deg, rgba(227,165,213,1) 4%, rgba(230,183,113,1) 79%, rgba(255,173,39,1) 99%);
-  --currencycomponentcolor:linear-gradient(131deg, rgba(132,191,179,1) 0%, rgba(70,106,108,1) 47%, rgba(44,68,78,1) 100%);
+  --currencycomponentcolor:linear-gradient(131deg,rgba(44,68,78,1) 0%, rgba(70,106,108,1) 47%,  rgba(132,191,179,1)  100%);
 }
 *{
   color:var(--fontcolor)
@@ -149,7 +148,7 @@ main{
   
 }
 .form-currency{
-  background-color: rgb(103, 222, 103);
+  background-color: #309664;
   border-radius: 10px;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.456);
   max-width: 50vw;
@@ -161,6 +160,10 @@ main{
   margin: 2%;
   padding: 1%;
   
+}
+
+.form-li, .currency-title{
+  color:var(--eggshellcolor);
 }
 ul{
   padding: 0;
