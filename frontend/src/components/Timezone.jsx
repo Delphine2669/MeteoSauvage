@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import PropTypes from "prop-types";
 
-function Timezone() {
-  const [query, setQuery] = useState("");
+function Timezone({ citySearch }) {
   const [timezoneName, setTimezoneName] = useState("");
   const [timezone, setTimezone] = useState("");
   useEffect(() => {
     async function fetchTimezone() {
       try {
         const response = await axios.get(
-          `https://api.opencagedata.com/geocode/v1/json?q=${query}&key=${
+          `https://api.opencagedata.com/geocode/v1/json?q=${citySearch}&key=${
             import.meta.env.VITE_TIMEZONE_API_KEY
           }`
         );
@@ -27,32 +27,20 @@ function Timezone() {
         console.error(error);
       }
     }
-    fetchTimezone();
-  }, [query]);
-  function handleSearch(e) {
-    e.preventDefault();
-  }
+    if (citySearch) {
+      fetchTimezone();
+    }
+  }, [citySearch]);
+
   return (
-    <figure className="timezone">
-      <div>
-        <form onSubmit={handleSearch}>
-          <input
-            type="text"
-            placeholder="Enter city name"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-          <button type="submit">Search</button>
-        </form>
-        <figure>
-          <img src="/time.jpg" alt="time" />
-          <p>Region:</p>
-          <p>{timezoneName}</p>
-          <p>décalage horaire de:</p>
-          <p>{timezone}</p>
-        </figure>
-      </div>
-    </figure>
+    <div className="timezone ">
+      <h2 className="component-title">Décalage horaire</h2>
+      <h4 className="tz-h4">Région:</h4>
+      <h4 className="tz-h4">{timezoneName}</h4>
+      <p>décalage horaire de:</p>
+      <h4 className="tz-h4">{timezone} par rapport à Paris</h4>
+    </div>
   );
 }
+Timezone.propTypes = { citySearch: PropTypes.func.isRequired };
 export default Timezone;

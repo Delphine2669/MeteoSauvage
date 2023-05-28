@@ -15,14 +15,17 @@ function SearchBar({ setCitySearch }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="searchbar">
       <input
         type="text"
         value={searchTerm}
         onChange={handleChange}
-        placeholder="Search city"
+        placeholder="Entrez une ville"
+        className="searchbar-input"
       />
-      <button type="submit">Search</button>
+      <button type="submit" className="submit-button">
+        Valider
+      </button>
     </form>
   );
 }
