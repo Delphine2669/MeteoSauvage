@@ -175,6 +175,7 @@ li{
 }
 .currency-button{
   background:var(--curencybuttoncolor);
+color:var(--eggshellcolor);
 }
 
 /*Footer */
