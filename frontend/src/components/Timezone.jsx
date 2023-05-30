@@ -42,5 +42,5 @@ function Timezone({ citySearch }) {
     </div>
   );
 }
-Timezone.propTypes = { citySearch: PropTypes.func.isRequired };
+Timezone.propTypes = { citySearch: PropTypes.string.isRequired };
 export default Timezone;

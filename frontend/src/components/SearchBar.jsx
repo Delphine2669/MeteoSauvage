@@ -20,7 +20,7 @@ function SearchBar({ setCitySearch }) {
         type="text"
         value={searchTerm}
         onChange={handleChange}
-        placeholder="Entrez une ville"
+        placeholder="Entrez une ville ou une devise"
         className="searchbar-input"
       />
       <button type="submit" className="submit-button">
@@ -31,7 +31,7 @@ function SearchBar({ setCitySearch }) {
 }
 
 SearchBar.propTypes = {
-  setCitySearch: PropTypes.func.isRequired,
+  setCitySearch: PropTypes.string.isRequired,
 };
 
 export default SearchBar;
