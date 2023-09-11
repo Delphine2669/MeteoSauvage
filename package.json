@@ -2,7 +2,7 @@
   "name": "template-fullstack",
   "version": "2.0.2",
   "description": "project template for the React-Express-MySQL cursus in Wild Code School",
-  "homepage": "https://github.com/wildcodeschool/js-template-fullstack#readme",
+  "homepage": "https://delphine2669.github.io/MeteoSauvage",
   "bugs": {
     "url": "https://github.com/wildcodeschool/js-template-fullstack/issues"
   },
@@ -14,6 +14,8 @@
     "cli": "pnpm"
   },
   "scripts": {
+    "build": "",
+    "deploy": "cd frontend && pnpm run build && gh-pages -d dist",
     "postinstall": "cross-env-shell \"husky install && cd ./frontend && $npm_package_config_cli install && cd ../backend && $npm_package_config_cli install\"",
     "migrate": "cd ./backend && node migrate.js",
     "dev": "cross-env-shell 'concurrently -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"$npm_package_config_cli:dev-*\"'",
@@ -28,6 +30,7 @@
   "devDependencies": {
     "concurrently": "^7.6.0",
     "cross-env": "^7.0.3",
+    "gh-pages": "^5.0.0",
     "husky": "^8.0.3"
   }
 }
