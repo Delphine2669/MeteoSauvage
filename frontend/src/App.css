@@ -92,7 +92,7 @@ main {
 }
 
 .logo-site {
-  width: 30dvw;
+  width: 20%;
 }
 
 .design-nav-block {
@@ -203,8 +203,11 @@ main {
   .currency-button {
     line-height: 2;
   }
+  .logo-site {
+    width: 25%;
+  }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1000px) {
   .container {
     display: flex;
   }
@@ -224,5 +227,8 @@ main {
   }
   .searchbar-input {
     text-align: center;
+  }
+  .logo-site {
+    max-width: 18%;
   }
 }
