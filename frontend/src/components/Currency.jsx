@@ -38,7 +38,7 @@ function Currency({ citySearch }) {
   }
 
   return (
-    <figure className="currency">
+    <div className="currency">
       <h2 className="component-title currency-title">Taux de change</h2>
       <div className="currency-form">
         {Object.entries(filteredCurrencies).map(([key, value]) => {
@@ -58,7 +58,7 @@ function Currency({ citySearch }) {
           );
         })}
       </div>
-    </figure>
+    </div>
   );
 }
 

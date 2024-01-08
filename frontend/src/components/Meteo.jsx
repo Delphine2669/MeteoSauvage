@@ -16,18 +16,21 @@ function Meteo({ citySearch }) {
       try {
         const response = await axios.get(
           `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${
-            import.meta.env.VITE_WEATHER_API_KEY3
+            import.meta.env.VITE_WEATHER_API_KEY ??
+            import.meta.env.VITE_WEATHER_API_KEY2
           }&q=${citySearch}&language=fr-fr`
         );
         const locationKey = response.data[0].Key;
         const currentConditionsResponse = await axios.get(
           `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${
-            import.meta.env.VITE_WEATHER_API_KEY3
+            import.meta.env.VITE_WEATHER_API_KEY ??
+            import.meta.env.VITE_WEATHER_API_KEY2
           }&language=fr-fr`
         );
         const fiveDayForecastResponse = await axios.get(
           `https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${
-            import.meta.env.VITE_WEATHER_API_KEY3
+            import.meta.env.VITE_WEATHER_API_KEY ??
+            import.meta.env.VITE_WEATHER_API_KEY2
           }&language=fr-fr`
         );
         setCurrentWeather(currentConditionsResponse.data[0]);
@@ -44,9 +47,10 @@ function Meteo({ citySearch }) {
   return (
     <div className="meteo">
       <h2 className="component-title">Météo actuelle :</h2>
+      <h2>{citySearch}</h2>
       {currentWeather && (
         <div className="currentweather">
-          <h2>{currentWeather.WeatherText}</h2>
+          <h3>{currentWeather.WeatherText}</h3>
           <img
             className="currentweather-icon"
             src={iconUrl(currentWeather.WeatherIcon)}
@@ -57,7 +61,7 @@ function Meteo({ citySearch }) {
       )}
       {forecast && (
         <div>
-          <h2>Prévisions sur 5 jours</h2>
+          <h3>Prévisions sur 5 jours</h3>
           <ul className="forecast-ul">
             {forecast.map((day) => {
               const date = new Date(day.Date);

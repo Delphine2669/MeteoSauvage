@@ -6,9 +6,11 @@ import Currency from "../components/Currency";
 function Home({ citySearch }) {
   return (
     <main>
-      <Meteo citySearch={citySearch} />
-      <Timezone citySearch={citySearch} />
-      <Currency citySearch={citySearch} />
+      <div className="container">
+        <Meteo citySearch={citySearch} />
+        <Timezone citySearch={citySearch} />
+        <Currency citySearch={citySearch} />
+      </div>
     </main>
   );
 }
