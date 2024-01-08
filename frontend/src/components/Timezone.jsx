@@ -8,11 +8,22 @@ function Timezone({ citySearch }) {
   const [currentTimeParis, setCurrentTimeParis] = useState("");
   const [currentTimeSearchedCity, setCurrentTimeSearchedCity] = useState("");
 
+  // const formatOffset = (offset) => {
+  // const offsetHours = (offset - 100).slice(0, -1);
+  // // const offsetHs = offsetHours.slice(0, -0);
+  // const offsetMinutes = offset.slice(-2);
+  // // return `${offsetHours}h${offsetMinutes}`;
+  // return offset - 100;
+  // };
   const formatOffset = (offset) => {
-    const offsetHours = offset.slice(0, -2);
+    const modifiedOffset = (parseInt(offset, 10) - 100).toString();
+    const slicedModifiedOffset = modifiedOffset.slice(0, -2);
+    const offsetHours = slicedModifiedOffset;
     const offsetMinutes = offset.slice(-2);
-    return `${offsetHours}h${offsetMinutes}`;
+    const formattedOffset = `${offsetHours}h${offsetMinutes}`;
+    return formattedOffset;
   };
+
   useEffect(() => {
     async function fetchTimezone() {
       try {
@@ -43,7 +54,8 @@ function Timezone({ citySearch }) {
         setCurrentTimeParis(formattedParisTime);
 
         // Calculate time for the searched city
-        const cityOffset = parseInt(timezoneOffsetResponse.slice(0, -2), 10);
+        const cityOffset =
+          parseInt(timezoneOffsetResponse.slice(0, -2), 10) - 1;
         const cityMinutes = parseInt(timezoneOffsetResponse.slice(-2), 10);
         const cityTime = new Date(
           now.getTime() + (cityOffset + cityMinutes / 60) * 60 * 60 * 1000
