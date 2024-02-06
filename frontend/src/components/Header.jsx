@@ -16,7 +16,7 @@ function Header({ setCitySearch }) {
 }
 
 Header.propTypes = {
-  setCitySearch: PropTypes.string.isRequired,
+  setCitySearch: PropTypes.func.isRequired,
 };
 
 export default Header;
