@@ -69,6 +69,9 @@ main {
 .timezone {
   grid-area: b;
 }
+.home-button-div {
+  border-radius: 20%;
+}
 
 .currency {
   grid-area: c;
@@ -99,10 +102,15 @@ main {
   display: flex;
   justify-content: space-around;
   margin: 5% 0;
+  text-decoration: none;
 }
+.design-nav > a {
+  text-decoration: none;
+}
+
 .design-nav {
   text-decoration: none;
-  border-radius: 10%;
+  border-radius: 8%;
   min-width: 10dvw;
   justify-content: space-around;
 }
@@ -188,6 +196,7 @@ main {
 @media screen and (min-width: 600px) {
   .design-nav {
     width: 23%;
+
     text-align: center;
   }
   .searchbar-input,
@@ -211,11 +220,19 @@ main {
   .container {
     display: flex;
   }
+  .design-nav-home,
+  .design-nav-timezone,
+  .design-nav-weather,
+  .design-nav-currency {
+    font-size: larger;
+    font-weight: bold;
+  }
   .design-nav {
     width: 22dvw;
     height: 8dvh;
     text-align: center;
     line-height: 5;
+    border-radius: 4%;
   }
   .searchbar-input,
   .submit-button {
